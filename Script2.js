@@ -15,7 +15,7 @@ function switchStriker() {
 }
 
 function addScore(value) {
-     // Get elements for both striker and non-striker
+     // Get elements for both striker and non-striker dfdf
 let strikerRuns = document.getElementById(`${currentStriker}Runs`);
 let strikerBalls = document.getElementById(`${currentStriker}Balls`);
 let strikerFours = document.getElementById(`${currentStriker}Fours`);
