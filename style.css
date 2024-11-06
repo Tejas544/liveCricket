@@ -1,0 +1,36 @@
+.Team{
+    display: grid;
+    grid-template-columns: 4fr 2fr 1fr 2fr 2fr;
+}
+.details-team{
+    background-color: rgb(88, 88, 88);
+    color:white;
+}
+.Heading1 , .Heading2 , .bowler{
+    display: grid;
+    grid-template-columns:3fr 1fr 1fr 1fr 1fr 1fr;
+}
+.items1{
+    background-color: rgb(219, 219, 219);
+    margin-bottom: 5px;
+    color: rgb(101, 101, 101);
+}
+
+.Striker , .nonStriker{
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+
+.Heading2{
+    margin-top: 10px;
+    background-color: rgb(219 ,219 ,219);
+    margin-bottom: 5px;
+    color: rgb(101, 101, 101);
+}
+#B1 , #B2{
+    color: rgb(94, 94, 255);
+}
+.buttons{
+    padding: 5px 20px 5px 20px;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scorecard</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <h2>Scorecard</h2>
+    <table id="scorecardTable">
+        <tr>
+            <th>Batsman</th>
+            <th>Runs</th>
+            <th>Balls</th>
+            <th>4s</th>
+            <th>6s</th>
+            <th>Strike Rate</th>
+        </tr>
+    </table>
+
+    <script>
+        // Load completed batsmen data
+        const batsmenData = JSON.parse(localStorage.getItem("batsmenData")) || [];
+
+        // Load current striker and non-striker data
+        const currentStrikerData = JSON.parse(localStorage.getItem("currentStrikerData")) || null;
+        const currentNonStrikerData = JSON.parse(localStorage.getItem("currentNonStrikerData")) || null;
+
+        // Reference to the scorecard table
+        const scorecardTable = document.getElementById("scorecardTable");
+
+        // Populate table with completed batsmen data
+        batsmenData.forEach(batsman => {
+            let row = scorecardTable.insertRow();
+            row.insertCell(0).innerText = batsman.name;
+            row.insertCell(1).innerText = batsman.runs;
+            row.insertCell(2).innerText = batsman.balls;
+            row.insertCell(3).innerText = batsman.fours;
+            row.insertCell(4).innerText = batsman.sixes;
+            row.insertCell(5).innerText = batsman.strikeRate;
+        });
+
+        // Add current striker and non-striker data if available
+        if (currentStrikerData) {
+            let strikerRow = scorecardTable.insertRow();
+            strikerRow.insertCell(0).innerText = `${currentStrikerData.name}*`;
+            strikerRow.insertCell(1).innerText = currentStrikerData.runs;
+            strikerRow.insertCell(2).innerText = currentStrikerData.balls;
+            strikerRow.insertCell(3).innerText = currentStrikerData.fours;
+            strikerRow.insertCell(4).innerText = currentStrikerData.sixes;
+            strikerRow.insertCell(5).innerText = currentStrikerData.strikeRate;
+        }
+
+        if (currentNonStrikerData) {
+            let nonStrikerRow = scorecardTable.insertRow();
+            nonStrikerRow.insertCell(0).innerText = `${currentNonStrikerData.name}`;
+            nonStrikerRow.insertCell(1).innerText = currentNonStrikerData.runs;
+            nonStrikerRow.insertCell(2).innerText = currentNonStrikerData.balls;
+            nonStrikerRow.insertCell(3).innerText = currentNonStrikerData.fours;
+            nonStrikerRow.insertCell(4).innerText = currentNonStrikerData.sixes;
+            nonStrikerRow.insertCell(5).innerText = currentNonStrikerData.strikeRate;
+        }
+    </script>
+</body>
+</html>
